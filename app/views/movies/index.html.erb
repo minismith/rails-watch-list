@@ -1,0 +1,10 @@
+<h1 class="my-3">All movies</h1>
+
+<% @movies.each do |movie| %>
+  <div class="mb-3 border rounded p-2">
+    <p><strong>Title:</strong> <%= movie.title %><p>
+    <img src="movie.poster_url" alt="movie poster">
+    <p><strong>Overview:</strong> <%= movie.overview %><p>
+    <p><strong>Rating:</strong> <%= movie.rating %><p>
+  </div>
+<% end %>

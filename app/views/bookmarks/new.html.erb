@@ -1,0 +1,9 @@
+<h1 class="my-3">Create a new bookmark</h1>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment %>
+    <%= f.submit %>
+  <% end %>
+
+<%= link_to "Back to #{@list.name}",  list_path(@list), class: "btn btn-outline-dark my-3"%>
