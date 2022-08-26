@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Bookmark.destroy_all
+Movie.destroy_all
+List.destroy_all
+
+
 require 'json'
 require 'open-uri'
 
@@ -21,6 +26,3 @@ movies.each do |movie|
 
   Movie.create(title: title, overview: overview, poster_url: poster_url, rating: rating)
 end
-
-List.create(name: "Classics")
-List.create(name: "Scary boys")
