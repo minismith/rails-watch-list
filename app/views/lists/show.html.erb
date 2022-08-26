@@ -1,22 +1,22 @@
 <h1 class="my-3"><%= @list.name %></h1>
 
 <% @list.bookmarks.each do |bookmark| %>
-  <div class="mb-3 border rounded p-2">
-    <p><strong>Title:</strong> <%= bookmark.movie.title %><p>
-    <img src="<%=bookmark.movie.poster_url%>" alt="movie poster">
-    <p><strong>Overview:</strong> <%= bookmark.movie.overview %><p>
+ <div class="card-product">
+  <img src="<%=bookmark.movie.poster_url%>" alt="movie poster"/>
+  <%= link_to icon('fa-solid', 'xmark'),
+      bookmark_path(bookmark.list),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class: "btn btn-outline-dark btn-less-padding exit" %>
+  <div class="card-product-infos">
+    <h2><%= bookmark.movie.title %></h2>
+    <p><%= bookmark.movie.overview %></p>
     <p><strong>Rating:</strong> <%= bookmark.movie.rating %><p>
     <p><strong>Comment:</strong> <%= bookmark.comment %><p>
-
-    <%= link_to "Delete bookmark",
-      bookmark_path(bookmark.list),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
-
   </div>
+</div>
 <% end %>
 
-<p>blaaaaaaaaaa</p>
+<br>
 
 <%= link_to "Add a movie",  new_list_bookmark_path(@list), class: "btn btn-outline-dark"%>
 <%= link_to "Back to your movie lists",  lists_path, class: "btn btn-outline-dark"%>
