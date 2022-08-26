@@ -1,4 +1,4 @@
-<div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.picture.key, :crop => :fill %>');">
+<div class="banner mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.picture.key, :gravity=>"faces", :crop => :fill %>');">
   <div class="container">
     <h1 style="text-align: center"><%= @list.name %></h1>
   </div>

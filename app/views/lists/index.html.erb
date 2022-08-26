@@ -7,14 +7,18 @@
  <div class="container">
 
   <div class="cards">
+
     <% @lists.each do |list| %>
       <div class="card-category mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.picture.key, :crop => :fill %>')">
         <%= link_to list.name, list_path(list), class: "white-link" %>
       </div>
     <% end %>
+
+
   </div>
 
-
-  <%= link_to "Create a movie list",  new_list_path, class: "btn btn-outline-dark"%>
+  <div class="new-list-div">
+    <%= link_to "Create a movie list",  new_list_path, class: "btn btn-outline-dark new-list-btn rounded"%>
+  </div>
 
 </div>
