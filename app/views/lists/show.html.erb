@@ -22,9 +22,26 @@
   </div>
   <% end %>
 
-  <br>
+  <h2 class="my-3">List reviews:</h2>
 
+  <% @list.reviews.each do |review| %>
+    <div class="review-div">
+      <p><%= review.content %></p>
+    </div>
+  <% end %>
+
+
+  <h2 class="my-3">Add a review:</h2>
+
+    <%= simple_form_for [@list, @review] do |f| %>
+      <%= f.input :content, label: false, placeholder: 'Add your review here...' %>
+      <%= f.submit 'Submit', class: "btn btn-outline-dark" %>
+    <% end %>
+
+
+<div class="new-list-div my-5">
   <%= link_to "Add a movie",  new_list_bookmark_path(@list), class: "btn btn-outline-dark"%>
   <%= link_to "Back to your movie lists",  lists_path, class: "btn btn-outline-dark"%>
+</div>
 
 </div>
